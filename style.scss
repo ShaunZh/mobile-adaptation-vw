@@ -1,0 +1,77 @@
+$vw_base: 375;
+$vw_fontSize: 75;
+$vw_design: 750;
+
+@function vw($px) {
+  @return ($px / 375) * 100vw;
+}
+
+@function rem($px) {
+  @return ($px / $vw_fontSize) * 1rem;
+}
+
+html {
+  font-size: ($vw_fontSize / ($vw_design / 2)) * 100vw;
+  // 同时，通过Media Queries 限制根元素最大最小值
+  @media screen and (max-width: 320px) {
+    font-size: 64px;
+  }
+  @media screen and (min-width: 540px) {
+    font-size: 108px;
+  }
+}
+
+body {
+  max-width: 540px;
+  min-width: 320px;
+  background: white;
+  margin: 0;
+  font-size: rem(16);
+}
+
+#section1 {
+  text-align: center;
+  img {
+    width: rem(74);
+    margin-top: rem(60);
+    border-radius: 50%;
+    margin-bottom: rem(34);
+  }
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 0 rem(16);
+  }
+  span{
+    background: #d8d8d8;
+    width: rem(128);
+    line-height: rem(24);
+    height: rem(24);
+    margin: 0 0 rem(24);
+  }
+}
+
+#section2 {
+  background: #efefef;
+  text-align: center;
+  padding: rem(50) 0 rem(30);
+  h2 {
+    background: #d8d8d8;
+    display: inline-block;
+    width: rem(200);
+    margin: 0 0 rem(20);
+    border-radius: rem(14);
+    line-height: rem(40);
+    height: rem(40);
+  }
+  p {
+    background: #e8e8e8;
+    width: rem(250);
+    display: inline-block;
+    margin: 0 0 rem(20);
+    line-height: rem(24);
+    height: rem(24);
+    border-radius: rem(14);
+  }
+}
